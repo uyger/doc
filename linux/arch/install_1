@@ -1,0 +1,70 @@
+一. 连接网络(无线网络）
+# ip link set wlp4s0 up
+# wpa_supplicant -B -i wlp4s0 -c<(wpa_passphrase "HiWiFi_702" "xiaoshuidi888")
+# dhclient wlp4s0
+
+二. 磁盘分区
+# fdisk /dev/sda
+# mkfs.ext4 /dev/sda1
+# mkfs.ext4 /dev/sda2
+# mkfs.ext4 /dev/sda3
+# mount /dev/sda2 /mnt
+# mkdir /mnt/boot
+# mkdir /mnt/home
+# mount /dev/sda1 /mnt/boot
+# mount /dev/sda3 /mnt/home
+查看交换分区
+# swapon -s
+# mkswap /dev/sda4
+# swapon /dev/sda4
+
+三.安装
+# vi /etc/pacman.d/mirrorlist      //把china源提到最前面
+# pacstrap -i /mnt linux pacman procps-ng systemd-sysvcompat sed netctl grub-bios vim
+# genfstab -U /mnt >> /mnt/etc/fstab
+
+四.进入chroot的新系统
+# arch-chroot /mnt /bin/bash
+
+五. 初始化配置
+# ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# vim /etc/locale.gen
+<-----------------------
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+------------------------>
+# locale-gen
+# vim /etc/hostname
+# passwd
+# grub-install --recheck /dev/sda
+# grub-mkconfig -o /boot/grub/grub.cfg
+加入win7启动
+# vim /boot/grub/grub.cfg
+<---------------------------
+menuentry 'Windows 7' {
+		insmod ntfs
+		set root=(hd0,msdos1)
+		chainloader +1
+}
+--------------------------->
+# ip a
+# cp /etc/netctl/examples/ethernet-static /etc/netctl/ens3
+<----------------------------------------
+Description='ens3'
+Interface=ens3
+Connection=ethernet
+IP=static
+Address=('192.168.1.85/24')
+Gateway='192.168.1.1'
+DNS=('192.168.1.1')
+
+---------------------------------------->
+# netctl enable ens3
+# exit
+# umount -R /mnt
+# reboot
+
+六.网络时间同步
+# timedatectl set-ntp true
+# date
+
