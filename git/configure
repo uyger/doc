@@ -1,0 +1,16 @@
+一. 检查是否配置了全局
+$ git config -l
+
+二. 配置邮箱
+$ git config --global user.name "uyger"
+$ git config --global user.email "service@uyger.com"
+
+三. 生成.id_rsa和id_rsa.pub
+$ ssh-keygen -t rsa -C "service@uyger.com" -f ~/.ssh/github/uyger/doc
+$ vim ~/.ssh/config
+<------------------
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/github/uyger/doc
+------------------->
