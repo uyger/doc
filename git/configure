@@ -9,7 +9,7 @@ $ git config --global user.email "service@uyger.com"
 $ ssh-keygen -t rsa -C "service@uyger.com" -f ~/.ssh/github/uyger/doc
 $ vim ~/.ssh/config
 <------------------
-Host github.com
+Host doc
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/github/uyger/doc
