@@ -1,0 +1,35 @@
+一. 配置网络
+$ ip addr show
+$ sudo vi /etc/sysconfig/network-scripts/ifcfg-eth1
+{
+DEVICE=eth1
+ONBOOT=yes
+BOOTPROTO=static
+IPADDR=192.168.1.80
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS1=192.168.1.1
+}
+$ sudo service network restart
+
+二. 配置主机名
+$ sudo vi /etc/hostname
+{
+local_dev
+}
+
+三. 设置好编码
+只是目前生效
+$ LANG=en_US.UTF-8
+重启生效
+$ sudo vi /etc/profile
+添加{
+export LANG=en_US.UTF-8
+}
+
+四. 更新
+$ sudo yum update
+$ reboot
+
+五. 安装screen
+$ sudo yum install screen

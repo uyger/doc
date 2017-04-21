@@ -1,0 +1,25 @@
+一. 建立新用户
+# useradd -m -g wheel uyg
+# passwd uyg
+# pacman -S sudo
+# chmod +w /etc/sudoers
+# vim /etc/sudoers
+<-----------------
+root ALL=(ALL) ALL
+%wheel ALL=(ALL) ALL
+----------------->
+$ chmod -w /etc/sudoers
+
+二. 安装ssh
+$ sudo pacman -S openssh 
+$ sudo vim /etc/ssh/sshd_config
+<-------------------------
+AllowUsers uyg
+-------------------------->
+$ systemctl enable sshd
+$ systemctl start sshd
+
+三. 安装和配置git（参见doc/git)
+$ pacman -S git
+
+三. 配置vim

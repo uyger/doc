@@ -84,4 +84,6 @@ biography				个人简介
 mention					提到，说起
 store					存储，商店
 privacy policy			隐私政策
+pointer					指针
+slice					切片
 

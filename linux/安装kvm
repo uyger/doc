@@ -1,0 +1,9 @@
+一. 检查是否支持虚拟化
+$ grep -E 'vmx|svm' /proc/cpuinfo
+
+二. 安装包
+$ sudo yum install qemu-kvm libvirt
+
+三. 配置
+
+
