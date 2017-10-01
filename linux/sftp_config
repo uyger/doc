@@ -1,0 +1,41 @@
+1.创建sftp组
+$ sudo groupadd sftp
+
+2.创建sftp用户
+$ sudo useradd -g sftp -s /bin/false mysftp
+$ sudo passwd mysftp
+
+3.创建目录
+$ sudo mkdir -p /data/sftp/mysftp
+$ sudo usermod -d /data/sftp/mysftp mysftp
+
+4.配置sshd_config
+$ sudo vi /etc/ssh/sshd_config
+<---------------
+#注释掉
+#Subsystem      sftp    /usr/libexec/openssh/sftp-server
+#添加如下几行
+# 指定使用sftp服务使用系统自带的internal-sftp
+Subsystem       sftp    internal-sftp
+# 匹配sftp组用户
+Match Group sftp
+# 将用户的根目录指定目录，%u代表用户名
+ChrootDirectory /data/sftp/%u
+# 指定sftp命令
+ForceCommand internal-sftp
+# 不允许端口转发
+AllowTcpForwarding no
+X11Forwarding no
+---------------->
+
+5.设定chroot目录(必须按以下设置)
+$ sudo chown root:sftp /data/sftp/mysftp
+$ sudo chmod 755 /data/sftp/mysftp
+
+6.建立sftp用户登入后可写入的目录
+$ sudo mkdir /data/sftp/mysftp/upload
+$ chown mysftp:sftp /data/sftp/mysftp/upload
+$ chmod 755 /data/sftp/mysftp/upload
+
+7.重启sshd服务
+$ sudo systemctl restart sshd

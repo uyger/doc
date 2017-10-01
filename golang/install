@@ -1,0 +1,16 @@
+1.去https://golang.org下载最新版本
+
+2.配置环境变量
+Path:   D:\Go\bin;
+GOPATH: D:\go_project;
+GOROOT: D:\Go;
+
+3.配置GoSublime插件
+<-------------------------------
+{
+    "env": {
+        "GOPATH": "D:/go_project",
+        "GOROOT": "D:/Go",
+    }
+}
+-------------------------------->

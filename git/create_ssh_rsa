@@ -1,0 +1,21 @@
+1. 检查是否配置了全局
+$ git config -l
+
+2. 配置邮箱
+$ git config --global user.name "cloud"
+$ git config --global user.email "service@uyger.com"
+
+3. 生成id_rsa和id_rsa.pub
+$ ssh-keygen -t rsa -C "service@uyger.com" -f ~/.ssh/rsa/github
+$ vim ~/.ssh/config
+$ chmod 600 ~/.ssh/config
+<------------------
+Host github
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/rsa/github
+------------------->
+
+4. 拉取代码
+$ git clone git@github:uyger/doc.git ./
+
