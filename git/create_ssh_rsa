@@ -17,5 +17,5 @@ Host github
 ------------------->
 
 4. 拉取代码
-$ git clone git@github:uyger/doc.git ./
+$ git clone git@github:doc.git ./
 

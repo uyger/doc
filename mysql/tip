@@ -1,0 +1,8 @@
+1.使用以下语句分析mysql语句
+mysql> show processlist;
+
+2.时间戳转换为时间(FROM_UNIXTIME)
+mysql> select id,FROM_UNIXTIME(createtime) from lxk_users limit 100;
+
+3.清空数据表
+mysql> truncate table lxk_umeng_log;

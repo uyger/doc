@@ -29,8 +29,8 @@ X11Forwarding no
 ---------------->
 
 5.设定chroot目录(必须按以下设置)
-$ sudo chown root:sftp /data/sftp/mysftp
-$ sudo chmod 755 /data/sftp/mysftp
+$ sudo chown root:sftp /data/sftp/mysftp	//所有上级目录必须为root:root
+$ sudo chmod 755 /data/sftp/mysftp		//所有上级目录必须为755
 
 6.建立sftp用户登入后可写入的目录
 $ sudo mkdir /data/sftp/mysftp/upload

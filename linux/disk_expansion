@@ -1,0 +1,19 @@
+1.暂停服务
+$ sudo fdisk -l		//查看磁盘是否增加
+$ sudo systemctl stop nginx
+$ sudo systemctl stop mysql
+$ sudo systemctl stop php-fpm
+
+2.卸载挂载
+$ sudo umount /dev/vdc1
+
+3.新建分区
+$ fdisk /dev/vdc
+> d n p 1 回车 回车 wq
+
+4.扩容磁盘
+$ sudo e2fsck -f /dev/vdc1		检查文件系统
+$ sudo resize2fs /dev/vdc1		变更文件系统大小
+
+5.重新挂载
+$ sudo mount /dev/vdc1 /data
