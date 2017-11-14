@@ -1,0 +1,8 @@
+1.禁用自动转换
+$ git config --global core.autocrlf false
+
+2.全部回滚
+$ git reset --hard
+
+3.回滚某个文件
+$ git checkout routes/api.php
