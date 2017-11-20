@@ -11,7 +11,7 @@ root ALL=(ALL) ALL
 $ chmod -w /etc/sudoers
 
 二. 安装ssh
-$ sudo pacman -S openssh 
+$ sudo pacman -S openssh
 $ sudo vim /etc/ssh/sshd_config
 <-------------------------
 AllowUsers uyg

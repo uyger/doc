@@ -4,7 +4,7 @@ $ sudo systemctl stop nginx
 $ sudo systemctl stop mysql
 $ sudo systemctl stop php-fpm
 
-2.卸载挂载
+2.卸载挂载(耐心等待一段时间)
 $ sudo umount /dev/vdc1
 
 3.新建分区
