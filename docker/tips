@@ -1,0 +1,8 @@
+1.查看容器ip
+$ docker inspect --format '{{.NetworkSettings.IPAddress}}' php7.1
+
+2.以超级管理员运行容器
+$ docker run --privileged=true -d nginx
+
+3.php容器加入扩展
+$ /usr/local/bin/docker-php-ext-install pdo_mysql

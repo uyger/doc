@@ -1,0 +1,8 @@
+1.win7加速docker hub
+$ docker-machine ssh default	//连接到虚拟机
+$ sudo vi /var/lib/boot2docker/profile
+<---------------
+EXTRA_ARGS='--registry-mirror=https://registry.docker-cn.com
+---------------->
+$ exit
+$ docker-machine restart default

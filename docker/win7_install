@@ -1,0 +1,19 @@
+1. 下载
+url: https://download.docker.com/win/stable/DockerToolbox.exe
+
+2.加入共享文件夹
+打开Vbox设置
+/d/Docker /d/Docker
+
+3.加速docker hub
+$ docker-machine ssh default	//连接到虚拟机
+$ sudo vi /var/lib/boot2docker/profile
+<---------------
+EXTRA_ARGS='--registry-mirror=https://registry.docker-cn.com
+---------------->
+$ exit
+$ docker-machine restart default
+
+4.git-bash运行docker
+$ cd /d/Program\ Files/Docker\ Toolbox/
+$ ./start.sh

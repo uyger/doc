@@ -6,3 +6,7 @@ mysql> select id,FROM_UNIXTIME(createtime) from lxk_users limit 100;
 
 3.清空数据表
 mysql> truncate table lxk_umeng_log;
+
+4.新增最大权限用户
+mysql> grant all privileges on *.* to 'mysql'@'%' identified by '123456' WITH GRANT OPTION;
+mysql> flush privileges;

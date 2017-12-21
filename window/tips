@@ -1,0 +1,2 @@
+1.建立文件夹连接(e:\test不能存在)
+$ mklink /J "e:\test" "f:\test"

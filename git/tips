@@ -1,5 +1,9 @@
 1.禁用自动转换
 $ git config --global core.autocrlf false
+$ vi .gitattributes
+<----------------------
+* text=auto 	改成 * text=
+---------------------->
 
 2.全部回滚
 $ git reset --hard
