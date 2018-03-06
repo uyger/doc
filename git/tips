@@ -10,3 +10,14 @@ $ git reset --hard
 
 3.回滚某个文件
 $ git checkout routes/api.php
+
+4.回滚远程分支
+$ git reset --hard commit_id
+$ git push -f origin master
+
+5.合并分支(将tan上的修改合并到master分支)
+$ git checkout master
+$ git rebase tan
+
+6.通过私钥生成RSA公钥
+$ openssl rsa -in prod -pubout -out prod.pub
